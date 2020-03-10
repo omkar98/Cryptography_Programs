@@ -1,0 +1,60 @@
+import java.util.*;
+import java.lang.Math;
+// if r1,r2 are relatively prime then
+//   1) r=0
+//   2) gcd(r1,r2) = 1
+//   3) There exisis an inverse in t
+class ExtendedEuclidean
+{
+  public static ArrayList solveFor_GCD_S_T(long r1, long r2, int show)
+  {
+    long s1=1, s2=0, t1=0, t2=1, q=0, r=1, s=0, t=0;
+    if (r2>r1){
+      long temp = r1;
+      r1 = r2;
+      r2 = temp;
+    }
+    if (show==1)
+    {
+      System.out.println("---------------\t"+"Extended Euclidean Algorithm"+"---------------\t");
+      System.out.println("  q\t"+"  r1\t"+"  r2\t"+"  s1\t"+"  s2\t"+"  t1\t"+"  t2\t");
+      System.out.println("-----\t"+"-----\t"+"-----\t"+"-----\t"+"-----\t"+"-----\t"+"-----\t");
+    }
+    while(r!=0)
+    {
+      q = (long) Math.floor(r1/r2);
+      r = r1%r2; r1 = r2; r2 = r;
+      t = t1 - t2 * q; t1 = t2; t2 = t;
+      s = s1 - s2 * q; s1 = s2; s2 = s;
+      if(show==1)   System.out.printf(" %02d "+"\t"+" %02d "+ "\t"+" %02d "+"\t"+" %02d "+"\t"+" %02d "+"\t"+" %02d "+"\t"+" %02d "+"\t"+"\n", q,r1,r2,s1,s2,t1,t2);
+    }
+    if (show==1)    System.out.println("------------------------------------------------------------\t");
+    ArrayList<Long> values = new ArrayList<Long>(
+              Arrays.asList(q,r1,r2,s1,s2,t1,t2));
+    return values;
+  }
+
+  public static long findInverse(long value, long r1, long r2)
+  {
+    if (r2>r1){ long temp = r1; r1 = r2; r2 = temp; }
+    if(value<0) value = (((value)%r1 + r1)%r1);
+    return value;
+  }
+
+  public static void main(String args[])
+  {
+    Scanner sc= new Scanner(System.in);
+    long r1 = sc.nextInt();
+    long r2 = sc.nextInt();
+    ExtendedEuclidean sol = new ExtendedEuclidean();
+    ArrayList values = solveFor_GCD_S_T(r1,r2, 1);
+    // System.out.println(values);
+    long a = sol.findInverse((long)values.get(5),r1,r2);
+    System.out.println("GCD is: " + values.get(1));
+    System.out.println("Inverse is: " + values.get(5) + " or "+a);
+  }
+}
+
+// ---All test cases in Hackerrank are solved --
+// https://www.hackerrank.com/challenges/functional-programming-warmups-in-recursion---gcd/problem
+// https://www.hackerrank.com/contests/test-contest-47/challenges/m158-multiple-euclid/problem

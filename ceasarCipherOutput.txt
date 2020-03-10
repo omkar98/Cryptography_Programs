@@ -1,0 +1,50 @@
+// References: ASCII Table
+// Questions: What if '?';,.[]-=\)(*&^%$#@!)'
+//Time Complexity: O(N)
+//Constraints:
+// Cannot encrypt uppercase letters
+ //"message" is a valid ASCII string with any spaces and symbols.
+ //1<=n<=100
+ //0<=key<=100
+
+ Note: The cipher only encrypts letters; symbols, such as -, remain unencrypted.
+
+//OUTPUT:
+E:\8th Sem\CNS\CNS Practicals>javac CeasarCipher.java
+
+E:\8th Sem\CNS\CNS Practicals>java CeasarCipher
+Message: tomorrow is a comman-off!
+Key: 7
+Encrypted Message: AVTVYYVD PZ H JVTTHU-VMM!
+Encrypted Message: AVTVYYVD PZ H JVTTHU-VMM!
+Key: 7
+Decrypted Message: tomorrow is a comman-off!
+-------------------------
+Brute Force technique on Caesar Cipher
+       AVTVYYVD PZ H JVTTHU-VMM!
+Key     Decryted Message
+1       zusuxxuc oy g iussgt-ull!
+2       ytrtwwtb nx f htrrfs-tkk!
+3       xsqsvvsa mw e gsqqer-sjj!
+4       wrpruurz lv d frppdq-rii!
+5       vqoqttqy ku c eqoocp-qhh!
+6       upnpsspx jt b dpnnbo-pgg!
+7       tomorrow is a comman-off!
+8       snlnqqnv hr z bnllzm-nee!
+9       rmkmppmu gq y amkkyl-mdd!
+10      qljloolt fp x zljjxk-lcc!
+11      pkiknnks eo w ykiiwj-kbb!
+12      ojhjmmjr dn v xjhhvi-jaa!
+13      nigilliq cm u wigguh-izz!
+14      mhfhkkhp bl t vhfftg-hyy!
+15      lgegjjgo ak s ugeesf-gxx!
+16      kfdfiifn zj r tfddre-fww!
+17      jecehhem yi q seccqd-evv!
+18      idbdggdl xh p rdbbpc-duu!
+19      hcacffck wg o qcaaob-ctt!
+20      gbzbeebj vf n pbzzna-bss!
+21      fayaddai ue m oayymz-arr!
+22      ezxzcczh td l nzxxly-zqq!
+23      dywybbyg sc k mywwkx-ypp!
+24      cxvxaaxf rb j lxvvjw-xoo!
+25      bwuwzzwe qa i kwuuiv-wnn!
